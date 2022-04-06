@@ -1,10 +1,6 @@
 package com.company.sibenice;
 
-import java.util.ArrayList;
-
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Sibenice {
     public static void Dead(){
@@ -19,6 +15,7 @@ public class Sibenice {
         Character[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
         ArrayList<Character> abeceda = new ArrayList<>(Arrays.asList(alphabet));
+        ArrayList<Character> obsah = new ArrayList<>();
 
         int[] abcx = new int[27];
         for (int i = 0; i < 27; i++){
@@ -27,10 +24,31 @@ public class Sibenice {
 
         ArrayList<String> slova = new ArrayList<>();
         slova.add("robot");
+        slova.add("auto");
+        slova.add("macbook");
+        slova.add("word");
+        slova.add("tobot");
+        slova.add("uzasnak");
+        slova.add("dron");
+        slova.add("kvetina");
+        slova.add("dum");
+        slova.add("tritan");
+        slova.add("educanet");
+        slova.add("hodinky");
+        slova.add("vysavac");
+        slova.add("slunce");
+        slova.add("Cina");
+        slova.add("postel");
+        slova.add("medved");
+        slova.add("svaz");
+        slova.add("skrin");
+        slova.add("otec");
+        slova.add("sestra");
+        slova.add("monitor");
 
 
         Random slovo = new Random();
-        String hadanka = slova.get(slovo.nextInt(1));
+        String hadanka = slova.get(slovo.nextInt(slova.size()));
 
         int chyby = 0;
         int existuje = 0;
@@ -51,12 +69,24 @@ public class Sibenice {
 
         System.out.println("Jdeme hrát");
         System.out.println("Zde máš podlážky");
-        for (int oi = 0; oi < rozklad.size(); oi++){
-            if (abcx[oi] == 0){
-                System.out.print("*");
+        for (int oi = 0; oi < rozklad.size(); oi++) {
+            boolean vyckavani = true;
+            int idpozice = 0;
+            int souradnice = 0;
+            while (vyckavani) {
+                if (rozklad.get(oi) == abeceda.get(idpozice)) {
+                    souradnice = idpozice;
+                    vyckavani = false;
+                }
+                else {
+                    idpozice++;
+                }
             }
-            else{
-                System.out.print(abeceda.get(oi + 1));
+            if (abcx[souradnice] == 0) {
+                System.out.print("_");
+            }
+            else {
+                System.out.print(rozklad.get(oi));
             }
         }
 
@@ -74,14 +104,21 @@ public class Sibenice {
                     if (vlozeno == abeceda.get(poiu)) {
                         pozice = poiu;
                         cekani = false;
-                    } else {
+                    }
+                    else {
                         poiu++;
                     }
                 }
                 if (abc[pozice] > 0) {
                     System.out.println("Písmeno je ve slově");
+
                     abcx[pozice] += 1;
-                    existuje++;
+
+                    if (obsah.contains(abeceda.get(pozice)) == false) {
+                        int pocetveslove = Collections.frequency(rozklad, abeceda.get(pozice));
+                        existuje += pocetveslove;
+                    }
+                    obsah.add(abeceda.get(pozice));
 
                     if (existuje == rozklad.size()){
                         hra = false;
@@ -94,14 +131,24 @@ public class Sibenice {
                 System.out.println("Počet chyb: " + chyby + "/10");
                 System.out.println("");
 
-                //TODO opravit vypisování písmen
-
                 for (int oi = 0; oi < rozklad.size(); oi++) {
-                    if (abcx[oi] == 0) {
-                        System.out.print("*");
+                    boolean vyckavani = true;
+                    int idpozice = 0;
+                    int souradnice = 0;
+                    while (vyckavani) {
+                        if (rozklad.get(oi) == abeceda.get(idpozice)) {
+                            souradnice = idpozice;
+                            vyckavani = false;
+                        }
+                        else {
+                            idpozice++;
+                        }
+                    }
+                    if (abcx[souradnice] == 0) {
+                        System.out.print("_");
                     }
                     else {
-                        System.out.print(abeceda.get(oi));
+                        System.out.print(rozklad.get(oi));
                     }
                 }
 
@@ -113,6 +160,7 @@ public class Sibenice {
             }
         }
         if (vyhra){
+            System.out.println("");
             System.out.println("Gratuluji");
             System.out.println("Vyhrál si");
         }
