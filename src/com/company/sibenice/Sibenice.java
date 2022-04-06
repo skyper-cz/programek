@@ -18,14 +18,14 @@ public class Sibenice {
         }
         Character[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
-        ArrayList<Character> abeceda = new ArrayList<Character>(Arrays.asList(alphabet));
+        ArrayList<Character> abeceda = new ArrayList<>(Arrays.asList(alphabet));
 
         int[] abcx = new int[27];
         for (int i = 0; i < 27; i++){
             abcx[i] = 0;
         }
 
-        ArrayList<String> slova = new ArrayList<String>();
+        ArrayList<String> slova = new ArrayList<>();
         slova.add("robot");
 
 
@@ -35,7 +35,7 @@ public class Sibenice {
         int chyby = 0;
         int existuje = 0;
 
-        ArrayList<Character> rozklad = new ArrayList<Character>();
+        ArrayList<Character> rozklad = new ArrayList<>();
         for (int ou = 0; ou < hadanka.length(); ou++) {
             char pismenko =hadanka.charAt(ou);
             rozklad.add(pismenko);
@@ -93,6 +93,9 @@ public class Sibenice {
                 }
                 System.out.println("Počet chyb: " + chyby + "/10");
                 System.out.println("");
+
+                //TODO opravit vypisování písmen
+
                 for (int oi = 0; oi < rozklad.size(); oi++) {
                     if (abcx[oi] == 0) {
                         System.out.print("*");
