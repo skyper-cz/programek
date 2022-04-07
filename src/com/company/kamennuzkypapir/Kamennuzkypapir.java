@@ -10,7 +10,7 @@ public class Kamennuzkypapir {
         Random pocitac = new Random();
         int scorePL = 0;
         int scorePC = 0;
-        String slovo = null;
+        String slovo;
 
         while(vklad.hasNext()){
             System.out.println("kámen, nůžky, nebo papír");

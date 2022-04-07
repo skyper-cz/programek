@@ -9,7 +9,6 @@ public class Prumer {
         float soucet = 0;
         float pocet = 0;
         Scanner cislo = new Scanner(System.in);
-        Scanner beho = new Scanner(System.in);
         System.out.println("Vložte číslo");
         while(cislo.hasNext()) {
             System.out.println("Vložte číslo");
