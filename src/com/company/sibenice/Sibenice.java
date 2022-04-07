@@ -37,7 +37,7 @@ public class Sibenice {
         slova.add("hodinky");
         slova.add("vysavac");
         slova.add("slunce");
-        slova.add("Cina");
+        slova.add("cina");
         slova.add("postel");
         slova.add("medved");
         slova.add("svaz");
@@ -96,6 +96,7 @@ public class Sibenice {
                 System.out.println("Vypište písmeno");
                 String input = letter.next();
                 char vlozeno = input.charAt(0);
+                vlozeno = Character.toLowerCase(vlozeno);
                 int pozice = 0;
 
                 boolean cekani = true;

@@ -15,6 +15,7 @@ public class Kamennuzkypapir {
         while(vklad.hasNext()){
             System.out.println("kámen, nůžky, nebo papír");
             slovo = vklad.next();
+            slovo = slovo.toLowerCase();
             int predmet = pocitac.nextInt(3);
             
             if(Objects.equals(slovo, "kámen") && predmet == 0){

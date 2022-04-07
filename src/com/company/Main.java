@@ -18,13 +18,14 @@ public class Main {
 
     while(beh) {
         String vyber = sc.next();
-        if (Objects.equals(vyber, "Šibenice")) {
+        vyber = vyber.toLowerCase();
+        if (Objects.equals(vyber, "šibenice")) {
             Dead();
             beh = false;
-        } else if (Objects.equals(vyber, "KámenNůžkyPapír")) {
+        } else if (Objects.equals(vyber, "kámenNůžkyPapír")) {
             Rockpaperscissors();
             beh = false;
-        } else if (Objects.equals(vyber, "Průměr")) {
+        } else if (Objects.equals(vyber, "průměr")) {
             Average();
             beh = false;
         } else {
